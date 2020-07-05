@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyFille_CuoiKiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyFille_CuoiKi.dbo.Library' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Library">
+    <Key>
+      <PropertyRef Name="FileName" />
+    </Key>
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QuanLyFille_CuoiKi.dbo.Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="FileName" />
+    </Key>
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="QuanLyFille_CuoiKiModelStoreContainer">
+    <EntitySet Name="Library" EntityType="Self.Library" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Library].[FileName] AS [FileName], 
+    [Library].[FilePath] AS [FilePath]
+    FROM [dbo].[Library] AS [Library]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Type" EntityType="Self.Type" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Type].[FileName] AS [FileName], 
+    [Type].[Note] AS [Note]
+    FROM [dbo].[Type] AS [Type]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

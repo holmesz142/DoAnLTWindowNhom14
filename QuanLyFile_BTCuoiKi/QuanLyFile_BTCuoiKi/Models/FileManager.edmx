@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLyFille_CuoiKiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="FilePath" />
+          </Key>
+          <Property Name="FilePath" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="TimeOpen" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="AddLibrary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FilePath" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="AddNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="AddNotes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="AddToLibrary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FilePath" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllExtensionFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllFile1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllFiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetFilePdf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetFileTxt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetFileWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SaveTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FilePath" Type="nvarchar" Mode="In" />
+          <Parameter Name="TimeOpen" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ShowNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ShowNote1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="orinFileName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FilePath" Type="nvarchar" Mode="In" />
+          <Parameter Name="OrinFilePath" Type="nvarchar" Mode="In" />
+          <Parameter Name="TimeOpen" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="UpdateNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="OrinFileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="QuanLyFille_CuoiKiModelStoreContainer">
+          <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Note" EntityType="Self.Note" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyFille_CuoiKiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Notes" Relationship="QuanLyFille_CuoiKiModel.LibraryNote" FromRole="Library" ToRole="Note" />
+          <NavigationProperty Name="Note" Relationship="QuanLyFille_CuoiKiModel.NoteLibrary" FromRole="Library" ToRole="Note" />
+        </EntityType>
+        <EntityContainer Name="QuanLyFille_CuoiKiEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Libraries" EntityType="Self.Library" />
+          <FunctionImport Name="AddLibrary">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="FilePath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllFile" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetAllFile_Result)" />
+          <FunctionImport Name="GetAllExtensionFile" ReturnType="Collection(String)" />
+          <FunctionImport Name="AddNote">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="Note" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddToLibrary">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="FilePath" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllFiles" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetAllFiles_Result)" />
+          <FunctionImport Name="GetFilePdf" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetFilePdf_Result)" />
+          <FunctionImport Name="GetFileTxt" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetFileTxt_Result)" />
+          <FunctionImport Name="GetFileWord" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetFileWord_Result)" />
+          <EntitySet Name="Notes" EntityType="QuanLyFille_CuoiKiModel.Note" />
+          <AssociationSet Name="LibraryNote" Association="QuanLyFille_CuoiKiModel.LibraryNote">
+            <End Role="Library" EntitySet="Libraries" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="NoteLibrary" Association="QuanLyFille_CuoiKiModel.NoteLibrary">
+            <End Role="Note" EntitySet="Notes" />
+            <End Role="Library" EntitySet="Libraries" />
+          </AssociationSet>
+          <FunctionImport Name="GetAllFile1" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetAllFile1_Result)" />
+          <FunctionImport Name="AddNotes">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="Note" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetNote" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetNote_Result)" />
+          <FunctionImport Name="ShowNote" ReturnType="Collection(String)">
+          <Parameter Name="FileName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateNote">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="OrinFileName" Mode="In" Type="String" />
+            <Parameter Name="Note" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ShowNote1" ReturnType="Collection(String)">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="orinFileName" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Histories" EntityType="QuanLyFille_CuoiKiModel.History" />
+          <FunctionImport Name="GetTime" ReturnType="Collection(QuanLyFille_CuoiKiModel.GetTime_Result)" />
+          <FunctionImport Name="SaveTime">
+            <Parameter Name="FilePath" Mode="In" Type="String" />
+            <Parameter Name="TimeOpen" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateHistory">
+            <Parameter Name="FilePath" Mode="In" Type="String" />
+            <Parameter Name="OrinFilePath" Mode="In" Type="String" />
+            <Parameter Name="TimeOpen" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAllFile_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllFiles_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetFilePdf_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetFileTxt_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetFileWord_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Library" Relationship="QuanLyFille_CuoiKiModel.LibraryNote" FromRole="Note" ToRole="Library" />
+          <NavigationProperty Name="Libraries" Relationship="QuanLyFille_CuoiKiModel.NoteLibrary" FromRole="Note" ToRole="Library" />
+        </EntityType>
+        <Association Name="LibraryNote">
+          <End Type="QuanLyFille_CuoiKiModel.Library" Role="Library" Multiplicity="1" />
+          <End Type="QuanLyFille_CuoiKiModel.Note" Role="Note" Multiplicity="*" />
+        </Association>
+        <Association Name="NoteLibrary">
+          <End Type="QuanLyFille_CuoiKiModel.Note" Role="Note" Multiplicity="1" />
+          <End Type="QuanLyFille_CuoiKiModel.Library" Role="Library" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="GetAllFile1_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetNote_Result">
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Note" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="FilePath" />
+          </Key>
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TimeOpen" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GetTime_Result">
+          <Property Type="String" Name="FilePath" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="TimeOpen" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyFille_CuoiKiModelStoreContainer" CdmEntityContainer="QuanLyFille_CuoiKiEntities2">
+          <EntitySetMapping Name="Libraries">
+            <EntityTypeMapping TypeName="QuanLyFille_CuoiKiModel.Library">
+              <MappingFragment StoreEntitySet="Library">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddLibrary" FunctionName="QuanLyFille_CuoiKiModel.Store.AddLibrary" />
+          <FunctionImportMapping FunctionImportName="GetAllFile" FunctionName="QuanLyFille_CuoiKiModel.Store.GetAllFile">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetAllFile_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllExtensionFile" FunctionName="QuanLyFille_CuoiKiModel.Store.GetAllExtensionFile" />
+          <FunctionImportMapping FunctionImportName="AddNote" FunctionName="QuanLyFille_CuoiKiModel.Store.AddNote" />
+          <FunctionImportMapping FunctionImportName="AddToLibrary" FunctionName="QuanLyFille_CuoiKiModel.Store.AddToLibrary" />
+          <FunctionImportMapping FunctionImportName="GetAllFiles" FunctionName="QuanLyFille_CuoiKiModel.Store.GetAllFiles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetAllFiles_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetFilePdf" FunctionName="QuanLyFille_CuoiKiModel.Store.GetFilePdf">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetFilePdf_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetFileTxt" FunctionName="QuanLyFille_CuoiKiModel.Store.GetFileTxt">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetFileTxt_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetFileWord" FunctionName="QuanLyFille_CuoiKiModel.Store.GetFileWord">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetFileWord_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="QuanLyFille_CuoiKiModel.Note">
+              <MappingFragment StoreEntitySet="Note">
+                <ScalarProperty Name="note" ColumnName="Note" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllFile1" FunctionName="QuanLyFille_CuoiKiModel.Store.GetAllFile1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetAllFile1_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddNotes" FunctionName="QuanLyFille_CuoiKiModel.Store.AddNotes" />
+          <FunctionImportMapping FunctionImportName="GetNote" FunctionName="QuanLyFille_CuoiKiModel.Store.GetNote">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetNote_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ShowNote" FunctionName="QuanLyFille_CuoiKiModel.Store.ShowNote" />
+          <FunctionImportMapping FunctionImportName="UpdateNote" FunctionName="QuanLyFille_CuoiKiModel.Store.UpdateNote" />
+          <FunctionImportMapping FunctionImportName="ShowNote1" FunctionName="QuanLyFille_CuoiKiModel.Store.ShowNote1" />
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="QuanLyFille_CuoiKiModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="TimeOpen" ColumnName="TimeOpen" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetTime" FunctionName="QuanLyFille_CuoiKiModel.Store.GetTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLyFille_CuoiKiModel.GetTime_Result">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="TimeOpen" ColumnName="TimeOpen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveTime" FunctionName="QuanLyFille_CuoiKiModel.Store.SaveTime" />
+          <FunctionImportMapping FunctionImportName="UpdateHistory" FunctionName="QuanLyFille_CuoiKiModel.Store.UpdateHistory" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

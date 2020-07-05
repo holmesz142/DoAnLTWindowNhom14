@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9e12e08b73344229f05fc8ea3fe5ff1" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyFille_CuoiKiModel.Library" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyFille_CuoiKiModel.Note" Width="1.5" PointX="3.875" PointY="1" />
+        <AssociationConnector Association="QuanLyFille_CuoiKiModel.LibraryNote" />
+        <AssociationConnector Association="QuanLyFille_CuoiKiModel.NoteLibrary" />
+        <EntityTypeShape EntityType="QuanLyFille_CuoiKiModel.History" Width="1.5" PointX="0.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

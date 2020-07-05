@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyFille_CuoiKiModelStoreContainer" CdmEntityContainer="QuanLyFille_CuoiKiEntities">
+    <EntitySetMapping Name="Libraries">
+      <EntityTypeMapping TypeName="QuanLyFille_CuoiKiModel.Library">
+        <MappingFragment StoreEntitySet="Library">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="QuanLyFille_CuoiKiModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
